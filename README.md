@@ -11,7 +11,7 @@ A challenge from [frontendmentor.io](https://www.frontendmentor.io/)
 ### Links
 
 - [Live Site](https://fm-intro-section-dropdown.vercel.app/)
-- [Solution](https://your-solution-url.com)
+- [Solution](https://www.frontendmentor.io/profile/boedegoat)
 
 ## My process
 
