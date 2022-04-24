@@ -2,15 +2,28 @@ import IconArrowDown from '@/images/icon-arrow-down.svg'
 import IconArrowUp from '@/images/icon-arrow-up.svg'
 import { Link } from './NavbarLinks'
 import classNames from 'classnames'
+import { useEffect } from 'react'
 
 interface Props {
   item: Link
   openDropdown: string
   handleOpenDropdown: () => void
+  closeDropdown: () => void
 }
 
-const NavbarButton = ({ item, openDropdown, handleOpenDropdown }: Props) => {
+const dropdownTransition = 400 // ms
+
+const NavbarButton = ({ item, openDropdown, handleOpenDropdown, closeDropdown }: Props) => {
   const open = openDropdown === item.label
+
+  useEffect(() => {
+    if (open) {
+      setTimeout(() => {
+        document.addEventListener('click', closeDropdown)
+      }, dropdownTransition)
+    }
+    return () => document.removeEventListener('click', closeDropdown)
+  }, [open])
 
   return (
     <div>
@@ -29,7 +42,7 @@ const NavbarButton = ({ item, openDropdown, handleOpenDropdown }: Props) => {
         style={{
           maxHeight: open ? 200 : 0,
           pointerEvents: open ? 'auto' : 'none',
-          transition: '0.4s',
+          transition: dropdownTransition + 'ms',
         }}
         className='select-none flex flex-col mt-2 ml-3 lg:ml-0 overflow-hidden lg:bg-real-white lg:absolute lg:p-3 lg:shadow-2xl lg:rounded-xl'
       >

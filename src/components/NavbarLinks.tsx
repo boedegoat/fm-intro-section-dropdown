@@ -30,6 +30,10 @@ const NavbarLinks = ({ links, open, onClose }: Props) => {
     }
   }
 
+  const closeDropdown = () => {
+    setOpenDropdown('')
+  }
+
   return (
     <>
       <div
@@ -56,6 +60,7 @@ const NavbarLinks = ({ links, open, onClose }: Props) => {
                   item={item}
                   key={idx}
                   openDropdown={openDropdown}
+                  closeDropdown={closeDropdown}
                   handleOpenDropdown={() => openDropdownOn(item.label)}
                 />
               ) : (
