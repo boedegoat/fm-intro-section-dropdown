@@ -48,7 +48,7 @@ const NavbarButton = ({ item, openDropdown, handleOpenDropdown, closeDropdown }:
       >
         {item.dropdown!.map((item, idx) => (
           <a href='#' className='p-2 flex items-center text-gray hover:text-black' key={idx}>
-            {item.icon && <img className='mr-3' src={item.icon} />} {item.label}
+            {item.icon && <img className='mr-3' src={item.icon} alt={item.label} />} {item.label}
           </a>
         ))}
       </div>
